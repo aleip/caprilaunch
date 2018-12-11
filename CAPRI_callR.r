@@ -47,15 +47,15 @@ source(paste0(CAPRIcallR_path, "/batch_file.r"))
 ini_file <- "S-JRCIPRAP246Protllxa.ini"
 btch_fle <- "batchfiles/epnfal_xavi.gms"
 
-
 fcurrun <- paste0(capripath, "/GUI/", btch_fle)
 
 
 batch_file(fcurrun = fcurrun,
-           gamsexe = gamspath, 
+           gamsexe = paste0(gamspath, "/gams.exe"), 
            work_dir = "../gams",
            dat_dir = "../dat")
 
+#btch_fle <- "batchfiles/epnfal_xavi_old.gms"
 
 gams2run <- paste("java", "-Xmx1G", "-Xverify:none", "-XX:+UseParallelGC", "-XX:PermSize=20M", "-XX:MaxNewSize=32M", "-XX:NewSize=32M", 
                   "-Djava.library.path=jars", "-classpath", 
